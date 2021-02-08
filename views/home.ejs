@@ -1,0 +1,13 @@
+<%- include('./partials/header') %> 
+
+    <% if (!currentUser) { %> 
+        <%- include('./partials/loginForm') %> 
+    <% } %> 
+    <% if (currentUser) { %> 
+        <%- include('./partials/navbar') %> 
+        <div id="home">
+            <a href="/logout">Logout</a>
+        </div>
+    <% } %> 
+
+<%- include('./partials/footer') %> 

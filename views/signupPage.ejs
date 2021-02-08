@@ -1,0 +1,33 @@
+<%- include('./partials/header') %> 
+
+    <div id="signupPage">
+        <div id="supInfo">
+            <img src="/images/fblogo.svg">
+            <p>Facebook helps you connect and share<br>with the people in your life.</p>
+        </div>
+        <div id="signupFormContainer">
+            <form id="signupForm" action="" method="POST">
+                <input type="text" name="firstName" placeholder="First Name" required>
+                <input type="text" name="surname" placeholder="Surname" required>
+                <input type="text" name="email" placeholder="Email address" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <input type="password" name="confirmPassword" placeholder="Confirm Password" required>
+                <button>Sign Up</button>
+            </form>
+            <button id="loginBtn" onclick='window.location.href = "/"'>Log In</button>
+        </div>
+    </div>
+    <div id="supFooter">
+        <ul>
+            <li>English (UK)</li>
+            <li>Polski</li>
+            <li>Espanol</li>
+            <li>Francais (France)</li>
+            <li>Italiano</li>
+            <li>Romana</li>
+            <li>Deutsch</li>
+        </ul>
+        <span>Facebook © 2021</span>
+    </div>
+
+<%- include('./partials/footer') %> 
