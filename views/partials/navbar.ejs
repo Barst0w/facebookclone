@@ -1,7 +1,7 @@
 <header>
     <div id="navbar">
         <div id="leftButtons">
-            <div>Logo</div>
+            <div><img src="/images/navbar/logo.svg"></div>
             <input type="search" placeholder="Search Facebook">
         </div>
         <div id="middleButtons">
@@ -12,11 +12,26 @@
             <div><img src="/images/navbar/groups.svg"></div>
         </div>
         <div id="rightButtons">
-            <div>Jake</div>
-            <div>Create</div>
-            <div>Message</div>
-            <div>Notifactions</div>
-            <div>Account</div>
+            <div id="navbarUser">
+                <%- currentUser.firstName %>
+                <div></div>
+            </div>
+            <div>
+                <img src="/images/navbar/circle.svg" class="background-circle">
+                <img src="/images/navbar/cross.png" class="over-img" id="navbarCross">
+            </div>
+            <div>
+                <img src="/images/navbar/circle.svg" class="background-circle">
+                <img src="/images/navbar/messenger.svg" class="over-img">
+            </div>
+            <div>
+                <img src="/images/navbar/circle.svg" class="background-circle">
+                <img src="/images/navbar/bell.svg" class="over-img">
+            </div>
+            <div>
+                <img src="/images/navbar/circle.svg" class="background-circle">
+                <img src="/images/navbar/arrow.svg" class="over-img" id="navbarArrow">
+            </div>
         </div>
     </div>
 </header>

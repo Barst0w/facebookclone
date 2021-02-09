@@ -6,7 +6,28 @@
     <% if (currentUser) { %> 
         <%- include('./partials/navbar') %> 
         <div id="home">
-            <a href="/logout">Logout</a>
+            <div id="homeContent">
+                <div id="postBox">
+                    <input type="text" placeholder="What's on your mind, <%- currentUser.firstName %>?">
+                    <div id="postBoxOptions">
+                        <div>Live Video</div>
+                        <div>Photo/Video</div>
+                        <div>Feeling/Activity</div>
+                    </div>
+                </div>
+                <div id="mutualFriendBox">
+                    <p>People you may know</p>
+                    <a href="/mutualfriends">View All</a>
+                    <div class="mutualFriendSlider">
+                        <div>
+                            <img src="">
+                            <p>Name</p>
+                            <button>Add Friend</button>
+                        </div>
+                    </div>
+                </div>
+                <div id="homePosts"></div>
+            </div>
         </div>
     <% } %> 
 
