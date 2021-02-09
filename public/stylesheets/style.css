@@ -297,12 +297,6 @@ body {
 #homePosts {
     margin-top: 2rem;
     width: 35rem;
-    background-color: #FFFFFF;
-    padding: 0.8rem;
-    border-radius: 0.5rem;
-    box-shadow: 
-    0 1px 2px rgb(0 0 0 / 10%), 
-    0 2px 4px rgb(0 0 0 / 10%);
 }
 
 #mutualFriendBox {
@@ -334,20 +328,86 @@ body {
     color: #1877F2;
 }
 
+.mutualFriendSlider {
+    display: inline-flex;
+    width: 100%;
+}
+
 .mutualFriendSlider > div {
-    max-width: 150px;
+    width: 100%;
     box-shadow: 
     0 1px 2px rgb(0 0 0 / 10%), 
     0 2px 4px rgb(0 0 0 / 10%);
+    margin: 0.5rem;
 }
 
 .mutualFriendSlider > div > button {
     width: 80%;
-    background-color: #1877F2;
+    background-color: #E7F3FF;
+    color: #1877F2;
     outline: none;
     border: none;
-    color: white;
     border-radius: 0.5rem;
     font-family: Helvetica, sans-serif;
     font-weight: 900;
+    margin-left: 10%;
+    margin-bottom: 5%;
+    padding: 0.8rem;
+}
+
+.mutualFriendSlider > div > p {
+    font-family: Helvetica, sans-serif;
+    margin-left: 10%;
+    font-weight: 900;
+}
+
+#rightSidebar {
+    font-family: Helvetica, sans-serif;
+    grid-column: 5 / 5;
+    background-color: #dddfe2;
+    width: 20rem;
+}
+
+#rightSidebar > p {
+    color: #65676B;
+    font-size: 1rem;
+    font-weight: 900;
+}
+
+#rightSidebar > div > p {
+    font-size: 0.9rem;
+}
+
+#leftSidebar {
+    font-family: Helvetica, sans-serif;
+    grid-column: 1 / 1;
+    background-color: #dddfe2;
+    width: 20rem;
+}
+
+#leftSidebar > div {
+    margin: 2rem;
+}
+
+.avatar {
+    height: 10rem;
+    width: 100%;
+    background-color: lightblue;
+}
+
+#rightSidebar > p {
+    margin: 0;
+    margin-top: 2rem;
+}
+
+.posts {
+    margin-top: 2rem;
+    width: 100%;
+    background-color: #FFFFFF;
+    padding: 0.8rem;
+    border-radius: 0.5rem;
+    box-shadow: 
+    0 1px 2px rgb(0 0 0 / 10%), 
+    0 2px 4px rgb(0 0 0 / 10%);
+    margin-bottom: 1rem;
 }

@@ -1,13 +1,31 @@
 const express = require('express');
 const passport = require('passport');
 const User = require('../models/users')
+const Posts = require('../models/posts')
 const bcrypt = require("bcryptjs")
 const LocalStrategy = require('passport-local').Strategy;
+const { check, validationResult } = require('express-validator')
+const mongoose = require('mongoose');
 const router = express.Router()
 const app = express();
 
-exports. get_landingPage = router.get('/', (req, res) => {
-    res.render('home')
+exports.get_landingPage = router.get('/', async (req, res) => {
+    const number = await User.countDocuments();
+    const numArray = [];
+
+    for (let i = 0; i < 3; ++i) {
+        let num = Math.floor(Math.random() * (5 - 0 + 1)) + 0;
+        if (numArray.includes(num)) {
+            --i
+        } else {
+            numArray.push(num)
+        }
+    }
+    await User.find({}, function(err, user) {
+         Posts.find({}, function(err, posts) {
+            res.render('home', {user, numArray, posts})
+        })
+    })
 })
 
 passport.use(
@@ -47,7 +65,7 @@ passport.use(
     res.locals.currentUser = req.user;
     next();
   });
-
+  
   exports.post_login = app.post(
     "/login",
     passport.authenticate("local", {
@@ -55,6 +73,30 @@ passport.use(
       failureRedirect: "/"
     })
   );
+
+  exports.post_createpost = app.post("/createpost", [
+    check('content', 'Content is Invalid').exists().bail().isLength({max: 400}).bail()
+], (req, res, next) => {
+    const currentUser = req.user.firstName + " " + req.user.surname;
+    const errors = validationResult(req);
+
+    if (!errors.isEmpty()) {
+        res.json({errors: errors.array()})
+    } else {
+                const posts = new Posts({
+                    content: req.body.content,
+                    author: currentUser,
+                    date: Date(),
+                    comments: "",
+                    likes: 0
+                  }).save(err => {
+                    if (err) { 
+                      return next(err);
+                    };
+                    res.redirect("/");
+                  });
+        }
+  });
 
   app.get("/logout", (req, res) => {
     req.logout();

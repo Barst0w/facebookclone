@@ -32,6 +32,7 @@ app.use('/', signupPageRoute.get_signupPage)
 
 app.post('/signup', signupPageRoute.post_signup)
 app.post('/login', landingPageRoute.post_login)
+app.post('/createpost', landingPageRoute.post_createpost)
 
 
 app.listen(3000, () => console.log("app listening on port 3000!"));

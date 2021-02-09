@@ -6,28 +6,39 @@
     <% if (currentUser) { %> 
         <%- include('./partials/navbar') %> 
         <div id="home">
+            <%- include('./partials/leftSidebar') %> 
             <div id="homeContent">
-                <div id="postBox">
-                    <input type="text" placeholder="What's on your mind, <%- currentUser.firstName %>?">
+                <form id="postBox" action="/createpost" method="POST">
+                    <input type="text" name="content" placeholder="What's on your mind, <%- currentUser.firstName %>?">
                     <div id="postBoxOptions">
                         <div>Live Video</div>
                         <div>Photo/Video</div>
                         <div>Feeling/Activity</div>
-                    </div>
+                    </form>
                 </div>
                 <div id="mutualFriendBox">
                     <p>People you may know</p>
                     <a href="/mutualfriends">View All</a>
                     <div class="mutualFriendSlider">
-                        <div>
-                            <img src="">
-                            <p>Name</p>
-                            <button>Add Friend</button>
-                        </div>
+                        <% numArray.forEach(index => { %> 
+                            <div>
+                                <div class="avatar"></div>
+                                <p><%= user[index].firstName %> <%= user[index].surname %></p>
+                                <button>Add Friend</button>
+                            </div>
+                        <% }) %> 
                     </div>
                 </div>
-                <div id="homePosts"></div>
+                <div id="homePosts">
+                    <% posts.forEach(post => { %> 
+                        <div class="posts">
+                            <p><%= post.author %></p>
+                            <p><%= post.content %></p>
+                        </div>
+                    <% }) %> 
+                </div>
             </div>
+            <%- include('./partials/rightSidebar') %> 
         </div>
     <% } %> 
 
