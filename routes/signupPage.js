@@ -10,11 +10,11 @@ exports. get_signupPage = router.get('/signup', (req, res) => {
 })
 
 exports.post_signup = app.post("/signup", [
-    check('firstName', 'Username is Invalid').exists().bail(),
-    check('surname', 'Username is Invalid').exists().bail(),
+    check('firstName', 'Username is Invalid').exists().bail().custom((value) => value === value.charAt(0).toUpperCase() + value.slice(1)).bail(),
+    check('surname', 'Username is Invalid').exists().bail().custom((value) => value === value.charAt(0).toUpperCase() + value.slice(1)).bail(),
     check('email', 'Email is Invalid').exists().bail().isEmail().bail(),
     check('password', `Password's don't match`).exists().bail(),
-    check('confirmPassword', `Password's don't match`).custom((value, {req})=> value === req.body.password)
+    check('confirmPassword', `Password's don't match`).custom((value, {req}) => value === req.body.password)
 ], (req, res, next) => {
     const errors = validationResult(req);
 

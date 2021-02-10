@@ -2,15 +2,15 @@ const mongoose = require('mongoose');
 const ObjectID = require('mongoose').ObjectId;
 const Schema = mongoose.Schema;
 
-const Posts = mongoose.model(
-    "Posts",
+const Comments = mongoose.model(
+    "Comments",
     new Schema({
       content: { type: String, required: true },
       author: { type: String, required: false },
       date: {type: Date, required: false},
-      likes: { type: Number, required: false },
+      parentpostid: {type: ObjectID, required: false},
       userid: {type: ObjectID, required: false}
     })
   );
 
-module.exports = Posts;
+module.exports = Comments;

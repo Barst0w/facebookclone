@@ -2,6 +2,7 @@ const express = require('express');
 const passport = require('passport');
 const User = require('../models/users')
 const Posts = require('../models/posts')
+const Comments = require('../models/comments')
 const bcrypt = require("bcryptjs")
 const LocalStrategy = require('passport-local').Strategy;
 const { check, validationResult } = require('express-validator')
@@ -10,7 +11,7 @@ const router = express.Router()
 const app = express();
 
 exports.get_landingPage = router.get('/', async (req, res) => {
-    const number = await User.countDocuments();
+    const allComments = await Comments.countDocuments()
     const numArray = [];
 
     for (let i = 0; i < 3; ++i) {
@@ -21,9 +22,12 @@ exports.get_landingPage = router.get('/', async (req, res) => {
             numArray.push(num)
         }
     }
+    
     await User.find({}, function(err, user) {
-         Posts.find({}, function(err, posts) {
-            res.render('home', {user, numArray, posts})
+        Posts.find({}, function(err, posts) {
+            Comments.find({}, function(err, comments) {
+                res.render('home', {user, numArray, posts, comments, allComments})
+            })
         })
     })
 })
@@ -86,9 +90,33 @@ passport.use(
                 const posts = new Posts({
                     content: req.body.content,
                     author: currentUser,
-                    date: Date(),
-                    comments: "",
-                    likes: 0
+                    date: Date.now(),
+                    likes: 0,
+                    userid: req.user.id
+                  }).save(err => {
+                    if (err) { 
+                      return next(err);
+                    };
+                    res.redirect("/");
+                  });
+        }
+  });
+
+  exports.post_createcomment = app.post("/createcomment", [
+    check('content', 'Content is Invalid').exists().bail().isLength({max: 300}).bail()
+], (req, res, next) => {
+    const currentUser = req.user.firstName + " " + req.user.surname;
+    const errors = validationResult(req);
+
+    if (!errors.isEmpty()) {
+        res.json({errors: errors.array()})
+    } else {
+                const comments = new Comments({
+                    content: req.body.content,
+                    author: currentUser,
+                    date: Date.now(),
+                    parentpostid: req.body.parentpostid,
+                    userid: req.user.id
                   }).save(err => {
                     if (err) { 
                       return next(err);

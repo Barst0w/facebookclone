@@ -30,10 +30,29 @@
                     </div>
                 </div>
                 <div id="homePosts">
-                    <% posts.forEach(post => { %> 
+                    <% posts.reverse().forEach(post => { %> 
                         <div class="posts">
-                            <p><%= post.author %></p>
-                            <p><%= post.content %></p>
+                            <p class="postAuthor"><%= post.author %></p>
+                            <p class="postDate"><%= new Date(post.date).toISOString().split('T')[0] %></p>
+                            <p class="postContent"><%= post.content %></p>
+                            <div class="postFooter">
+                                <div>Like</div>
+                                <div>Comment</div>
+                            </div>
+                            <div class="postComments">
+                                <% for (let i = 0; i < allComments; ++i) {%>                                     
+                                    <% if (comments[i].parentpostid.equals(post._id)) { %>                                                                               
+                                        <div class="comments">
+                                            <p class="commentAuthor"><%= comments[i].author %> </p>
+                                            <p class="commentContent"><%= comments[i].content %> </p>
+                                        </div>
+                                        <% } %> 
+                                <% } %> 
+                                <form action="/createcomment" method="POST">                                                        
+                                    <input type="text" name="content" placeholder="Write a comment...">
+                                    <input type="hidden" name="parentpostid" value="<%= post._id %>">
+                                </form>
+                            </div>
                         </div>
                     <% }) %> 
                 </div>

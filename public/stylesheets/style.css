@@ -120,7 +120,7 @@ body {
     grid-template-columns: auto 1fr auto 1fr auto;
     margin: 0;
     background-color: #dddfe2;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 #navbar {
@@ -385,10 +385,6 @@ body {
     width: 20rem;
 }
 
-#leftSidebar > div {
-    margin: 2rem;
-}
-
 .avatar {
     height: 10rem;
     width: 100%;
@@ -401,6 +397,7 @@ body {
 }
 
 .posts {
+    font-family: Helvetica, sans-serif;
     margin-top: 2rem;
     width: 100%;
     background-color: #FFFFFF;
@@ -410,4 +407,95 @@ body {
     0 1px 2px rgb(0 0 0 / 10%), 
     0 2px 4px rgb(0 0 0 / 10%);
     margin-bottom: 1rem;
+}
+
+.postAuthor {
+    font-weight: bold;
+    font-size: 0.9em;
+    margin: 0;
+}
+
+.postDate {
+    font-size: 0.7em;
+    color: #65676B;
+    margin: 0;
+    margin-top: 0.2rem;
+}
+
+.postContent {
+    font-size: 0.9em;
+}
+
+.postFooter {
+    display: inline-flex;
+    width: 100%;
+    border-top: 1px solid #dddfe2;
+    border-bottom: 1px solid #dddfe2;
+}
+
+.postFooter > div {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    font-size: 0.9em;
+    cursor: pointer;
+    border-radius: 0.3rem;
+    padding-top: 0.4rem;
+    padding-bottom: 0.4rem;
+}
+
+.postFooter > div:hover {
+    background-color: #dddfe2;
+}
+
+.postComments > form > input {
+        outline: none;
+        border: none;
+        width: 95%;
+        padding: 0.5rem;
+        padding-left: 1.5rem;
+        margin-top: 0.8rem;
+        height: 1rem;
+        border-radius: 5rem;
+        font-size: 1em;
+        color: #65676B;
+        background-color: #F0F2F5;
+}
+
+#leftSidebar > div > p {
+    display: inline-block;
+    margin: 0;
+    margin-left: 1rem;
+}
+
+#leftSidebar > div {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 2rem;
+}
+
+.postComments > .comments{
+    display: grid;
+}
+
+.comments {
+    word-break: break-all;
+    justify-self: start;
+    padding: 0.5rem;
+    margin-top: 1rem;
+    font-family: Helvetica, sans-serif;
+    background-color: #F0F2F5;
+    border-radius: 0.5rem;
+}
+
+.commentAuthor {
+    font-weight: 900;
+    margin: 0;
+    font-size: 0.7em;
+}
+
+.commentContent {
+    margin: 0;
+    font-size: 1em;
 }
