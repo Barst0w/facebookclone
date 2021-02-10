@@ -15,7 +15,7 @@ exports.get_landingPage = router.get('/', async (req, res) => {
     const numArray = [];
 
     for (let i = 0; i < 3; ++i) {
-        let num = Math.floor(Math.random() * (5 - 0 + 1)) + 0;
+        let num = Math.floor(Math.random() * (4 - 0 + 1)) + 0;
         if (numArray.includes(num)) {
             --i
         } else {

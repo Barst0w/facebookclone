@@ -120,7 +120,7 @@ body {
     grid-template-columns: auto 1fr auto 1fr auto;
     margin: 0;
     background-color: #dddfe2;
-    min-height: 100vh;
+    min-height: 95vh;
 }
 
 #navbar {
@@ -475,7 +475,7 @@ body {
     margin: 2rem;
 }
 
-.postComments > .comments{
+.postComments {
     display: grid;
 }
 
@@ -497,5 +497,6 @@ body {
 
 .commentContent {
     margin: 0;
-    font-size: 1em;
+    margin-top: 0.1rem;
+    font-size: 0.9em;
 }

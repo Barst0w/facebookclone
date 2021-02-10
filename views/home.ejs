@@ -24,7 +24,7 @@
                             <div>
                                 <div class="avatar"></div>
                                 <p><%= user[index].firstName %> <%= user[index].surname %></p>
-                                <button>Add Friend</button>
+                                <button class="addFriend">Add Friend</button>
                             </div>
                         <% }) %> 
                     </div>
@@ -36,7 +36,7 @@
                             <p class="postDate"><%= new Date(post.date).toISOString().split('T')[0] %></p>
                             <p class="postContent"><%= post.content %></p>
                             <div class="postFooter">
-                                <div>Like</div>
+                                <div class="likeBtn">Like</div>
                                 <div>Comment</div>
                             </div>
                             <div class="postComments">

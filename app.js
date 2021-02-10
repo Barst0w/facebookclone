@@ -35,5 +35,4 @@ app.post('/login', landingPageRoute.post_login)
 app.post('/createpost', landingPageRoute.post_createpost)
 app.post('/createcomment', landingPageRoute.post_createcomment)
 
-
-app.listen(3000, () => console.log("app listening on port 3000!"));
+app.listen(5000, () => console.log("app listening on port 3000!"));
