@@ -36,7 +36,7 @@
                             <p class="postDate"><%= new Date(post.date).toISOString().split('T')[0] %></p>
                             <p class="postContent"><%= post.content %></p>
                             <div class="postFooter">
-                                <div class="likeBtn">Like</div>
+                                <div class="likeBtn" postid="<%- post._id %>">Like</div>
                                 <div>Comment</div>
                             </div>
                             <div class="postComments">

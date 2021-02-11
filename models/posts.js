@@ -8,7 +8,7 @@ const Posts = mongoose.model(
       content: { type: String, required: true },
       author: { type: String, required: false },
       date: {type: Date, required: false},
-      likes: { type: Number, required: false },
+      likes: [{ type: ObjectID, required: false }],
       userid: {type: ObjectID, required: false}
     })
   );

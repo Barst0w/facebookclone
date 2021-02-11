@@ -3,13 +3,12 @@ const User = require('../models/users')
 const bcrypt = require("bcryptjs")
 const { check, validationResult } = require('express-validator')
 const router = express.Router()
-const app = express();
 
-exports. get_signupPage = router.get('/signup', (req, res) => {
+router.get('/signup', (req, res) => {
     res.render('signupPage')
 })
 
-exports.post_signup = app.post("/signup", [
+router.post("/signup", [
     check('firstName', 'Username is Invalid').exists().bail().custom((value) => value === value.charAt(0).toUpperCase() + value.slice(1)).bail(),
     check('surname', 'Username is Invalid').exists().bail().custom((value) => value === value.charAt(0).toUpperCase() + value.slice(1)).bail(),
     check('email', 'Email is Invalid').exists().bail().isEmail().bail(),
@@ -39,3 +38,5 @@ exports.post_signup = app.post("/signup", [
           });
     }
   });
+
+  module.exports = router;
