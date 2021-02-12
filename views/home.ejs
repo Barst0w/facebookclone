@@ -24,7 +24,7 @@
                             <div>
                                 <div class="avatar"></div>
                                 <p><%= user[index].firstName %> <%= user[index].surname %></p>
-                                <button class="addFriend">Add Friend</button>
+                                <button class="addFriend" userid="<%- user[index]._id %>">Add Friend</button>
                             </div>
                         <% }) %> 
                     </div>
@@ -35,6 +35,12 @@
                             <p class="postAuthor"><%= post.author %></p>
                             <p class="postDate"><%= new Date(post.date).toISOString().split('T')[0] %></p>
                             <p class="postContent"><%= post.content %></p>
+                            <% if (post.likes.length !== 0) { %>
+                                <div class="postLikes">
+                                    <div><img src="/images/like.svg"></div>
+                                    <p><%= post.likes.length %> </p>
+                                </div>
+                            <% } %> 
                             <div class="postFooter">
                                 <div class="likeBtn" postid="<%- post._id %>">Like</div>
                                 <div>Comment</div>

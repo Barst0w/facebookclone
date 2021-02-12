@@ -500,3 +500,29 @@ body {
     margin-top: 0.1rem;
     font-size: 0.9em;
 }
+
+.postLikes {
+    display: inline-flex;
+    align-content: center;
+    width: 100%;
+    margin-bottom: 0.5rem;
+}
+
+.postLikes > div > img {
+    align-content: center;
+    height: 1.2rem;
+}
+
+.postLikes > p {
+    align-self: center;
+    margin: 0;
+    margin-left: 0.3rem;
+    padding-bottom: 0.3rem;
+    color: #65676B;
+    font-family: Helvetica, sans-serif;
+    font-size: 15px;
+}
+
+.friendRequestActive {
+    filter: invert(13%) sepia(73%) saturate(6990%) hue-rotate(360deg) brightness(93%) contrast(118%);
+}

@@ -9,8 +9,8 @@ const User = mongoose.model(
       surname: { type: String, required: true },
       email: {type: String, required: true},
       password: { type: String, required: true },
-      friends: [{ type: ObjectID, required: true }],
-      friendRequest: [{type: ObjectID, required: true}]
+      friends: [{ type: ObjectID, required: false }],
+      friendRequest: [{type: ObjectID, required: false}]
     })
   );
 

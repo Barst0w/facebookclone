@@ -6,7 +6,12 @@
         </div>
         <div id="middleButtons">
             <div><img src="/images/navbar/home.svg"></div>
-            <div><img src="/images/navbar/friends.svg"></div>
+            <% if (currentUser.friendRequest.length !== 0) { %>
+                <div class="friendRequestActive"><img src="/images/navbar/friends.svg"></div>
+            <% } %> 
+            <% if (currentUser.friendRequest.length === undefined || currentUser.friendRequest.length === 0) { %>
+                <div><img src="/images/navbar/friends.svg"></div>
+            <% } %>
             <div><img src="/images/navbar/watch.svg"></div>
             <div><img src="/images/navbar/marketplace.svg"></div>
             <div><img src="/images/navbar/groups.svg"></div>
