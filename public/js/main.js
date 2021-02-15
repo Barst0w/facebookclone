@@ -15,6 +15,7 @@ document.addEventListener('click', (e) => {
         .catch((error) => {
           console.error('Error:', error);
         });
+        window.location.href = '/';
     }
 
     if (e.target.className === 'addFriend') {
@@ -31,6 +32,41 @@ document.addEventListener('click', (e) => {
         .catch((error) => {
           console.error('Error:', error);
         });
+        window.location.href = '/';
+    }
+
+    if (e.target.className === 'acceptRequestBtn') {
+        console.log('Friend Request Accepted')
+        fetch('acceptFriendRequest', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({ id: e.target.getAttribute('userid') })
+        })
+        .then(response => response.json())
+        .then(data => {
+          console.log('Success:', data);
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+        });
+        window.location.href = '/';
+    }
+
+    if (e.target.className === 'removeRequestBtn') {
+        console.log('Friend Request Removed')
+        fetch('removeFriendRequest', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({ id: e.target.getAttribute('userid') })
+        })
+        .then(response => response.json())
+        .then(data => {
+          console.log('Success:', data);
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+        });
+        window.location.href = '/';
     }
 
 })

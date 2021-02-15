@@ -183,7 +183,7 @@ body {
     height: 100%;
 }
 
-#middleButtons > div{
+#middleButtons > div, #middleButtons > a{
     border-radius: 0.5rem;
     display: inline-flex;
     padding: 0 2rem 0 2rem;
@@ -195,7 +195,7 @@ body {
     height: 85%;
 }
 
-#middleButtons > div > img {
+#middleButtons > div > img, #middleButtons > a > img {
     margin: auto;
     height: 85%;
     filter: invert(64%) sepia(6%) saturate(97%) hue-rotate(181deg) brightness(92%) contrast(88%);
@@ -207,7 +207,7 @@ body {
     filter: invert(96%) sepia(7%) saturate(79%) hue-rotate(177deg) brightness(93%) contrast(92%);
 }
 
-#middleButtons > div:hover {
+#middleButtons > div:hover, #middleButtons > a:hover {
     cursor: pointer;
     background-color: #dddfe2;
     transform: scale(1.05);
@@ -328,12 +328,12 @@ body {
     color: #1877F2;
 }
 
-.mutualFriendSlider {
+.mutualFriendSlider, .friendRequests {
     display: inline-flex;
     width: 100%;
 }
 
-.mutualFriendSlider > div {
+.mutualFriendSlider > div, .friendRequests > div {
     width: 100%;
     box-shadow: 
     0 1px 2px rgb(0 0 0 / 10%), 
@@ -341,7 +341,7 @@ body {
     margin: 0.5rem;
 }
 
-.mutualFriendSlider > div > button {
+.mutualFriendSlider > div > button, .friendRequests > div > button {
     width: 80%;
     background-color: #E7F3FF;
     color: #1877F2;
@@ -353,9 +353,10 @@ body {
     margin-left: 10%;
     margin-bottom: 5%;
     padding: 0.8rem;
+    cursor: pointer;
 }
 
-.mutualFriendSlider > div > p {
+.mutualFriendSlider > div > p, .friendRequests > div > p {
     font-family: Helvetica, sans-serif;
     margin-left: 10%;
     font-weight: 900;
@@ -525,4 +526,23 @@ body {
 
 .friendRequestActive {
     filter: invert(13%) sepia(73%) saturate(6990%) hue-rotate(360deg) brightness(93%) contrast(118%);
+}
+
+.friendRequests {
+    margin-top: 3rem;
+    height: fit-content;
+    grid-column: 2 / 2;
+}
+
+.friendRequests > div {
+    min-width: 200px;
+}
+
+#friendsPage {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    margin: 0;
+    background-color: #dddfe2;
+    min-height: 95vh;
+    width: 100%;
 }

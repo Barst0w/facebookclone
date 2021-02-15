@@ -8,6 +8,7 @@ const app = express();
 
 const landingPageRoute = require('./routes/landingPage')
 const signupPageRoute = require('./routes/signupPage')
+const friendsPageRoute = require('./routes/friendsPage')
 
 const mongoDb = `mongodb+srv://admin:${process.env.PASS}@facebook.atwmd.mongodb.net/${process.env.DB}?retryWrites=true&w=majority`;
 mongoose.connect(mongoDb, { useUnifiedTopology: true, useNewUrlParser: true });
@@ -26,6 +27,7 @@ app.use(express.static('public'))
 
 app.use('/', landingPageRoute)
 app.use('/', signupPageRoute)
+app.use('/', friendsPageRoute)
 
 app.listen(3000).on('error', (err) => {
     console.log(err)

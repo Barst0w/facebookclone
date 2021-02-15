@@ -2,6 +2,8 @@
     <p>Contacts</p>
     <div class="sidebarContact">
         <img>
-        <p><%= currentUser.friendRequest %></p>
+        <% currentUser.friends.forEach(friend => { %> 
+        <p><%= friend %></p>
+        <% }) %> 
     </div>
 </div>

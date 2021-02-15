@@ -1,0 +1,17 @@
+<%- include('./partials/header') %> 
+<%- include('./partials/navbar') %> 
+
+<div id="friendsPage">
+    <div class="friendRequests">
+        <% allRequests.forEach(user => { %> 
+            <div>
+                <div class="avatar"></div>
+                <p><%= user.firstName %> <%= user.surname %></p>
+                <button class="acceptRequestBtn" userid="<%- user._id %>">Accept</button>
+                <button class="removeRequestBtn" userid="<%- user._id %>">Remove</button>
+            </div>
+        <% }) %>
+    </div>
+</div>
+
+<%- include('./partials/footer') %> 

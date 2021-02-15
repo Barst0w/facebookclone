@@ -30,7 +30,8 @@
                     </div>
                 </div>
                 <div id="homePosts">
-                    <% posts.reverse().forEach(post => { %> 
+                    <% posts.reverse().forEach(post => { %>  
+                        <% if (currentUser.friends.includes(post.userid) || currentUser._id.equals(post.userid)) { %>
                         <div class="posts">
                             <p class="postAuthor"><%= post.author %></p>
                             <p class="postDate"><%= new Date(post.date).toISOString().split('T')[0] %></p>
@@ -60,6 +61,7 @@
                                 </form>
                             </div>
                         </div>
+                        <% } %>
                     <% }) %> 
                 </div>
             </div>

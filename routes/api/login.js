@@ -2,13 +2,13 @@ const express = require('express');
 const passport = require('passport');
 const bcrypt = require("bcryptjs")
 const LocalStrategy = require('passport-local').Strategy;
-const User = require('../../models/users')
+const Users = require('../../models/users')
 const router = express.Router()
 
 // Verifies user validity from database.
 passport.use(
     new LocalStrategy({usernameField: 'email'}, (email, password, done) => {
-      User.findOne({ email: email }, (err, user) => {
+      Users.findOne({ email: email }, (err, user) => {
         if (err) { 
           return done(err);
         };
@@ -34,7 +34,7 @@ passport.use(
   });
   
   passport.deserializeUser(function(id, done) {
-    User.findById(id, function(err, user) {
+    Users.findById(id, function(err, user) {
       done(err, user);
     });
   });

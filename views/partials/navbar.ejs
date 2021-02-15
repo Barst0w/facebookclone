@@ -5,9 +5,9 @@
             <input type="search" placeholder="Search Facebook">
         </div>
         <div id="middleButtons">
-            <div><img src="/images/navbar/home.svg"></div>
+            <a href="/"><img src="/images/navbar/home.svg"></a>
             <% if (currentUser.friendRequest.length !== 0) { %>
-                <div class="friendRequestActive"><img src="/images/navbar/friends.svg"></div>
+                <a href="/friends" class="friendRequestActive"><img src="/images/navbar/friends.svg"></a>
             <% } %> 
             <% if (currentUser.friendRequest.length === undefined || currentUser.friendRequest.length === 0) { %>
                 <div><img src="/images/navbar/friends.svg"></div>
